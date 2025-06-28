@@ -23,7 +23,7 @@ function Navegacion({ carritoContar }) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav Nav className="d-flex gap-4 justify-content-start w-75">
+          <Nav className="d-flex gap-4 justify-content-start w-75">
             <Nav.Link as={Link} to="/" className="text-dark">
               Productos
             </Nav.Link>
