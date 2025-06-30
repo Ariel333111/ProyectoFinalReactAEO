@@ -9,6 +9,7 @@ import About from "./pages/About";
 import AdmLoguin from "./components/AdmLoguin";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import OfertasDetalle from "./pages/OfertasDetalle";
 
 function App() {
   const [carritoContar, setcarritoContar] = useState(0);
@@ -39,6 +40,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/AdminL" element={<AdmLoguin />} />
           <Route path="/Admin" element={<Admin />} />
+          <Route path="/Ofertas/:id" element={<OfertasDetalle />} />
           <Route
             path="/Ofertas"
             element={
