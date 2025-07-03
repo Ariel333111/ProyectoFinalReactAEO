@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 function Loguin() {
   const [usuario, setUsuario] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const handleLoguin = (e) => {
+    localStorage.setItem("auth", "true"); // autentificacion
     e.preventDefault();
     Swal.fire({
       icon: "success",
@@ -19,7 +20,7 @@ function Loguin() {
   return (
     <Container className="d-flex flex-column align-items-center justify-content-center vh-100">
       <Form
-        onSubmit={handleSubmit}
+        onSubmit={handleLoguin}
         className="w-45 p-4 text-center"
         style={{ backgroundColor: "#d4edda", borderRadius: "10px" }}
       >

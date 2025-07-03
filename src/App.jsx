@@ -10,6 +10,7 @@ import AdmLoguin from "./components/AdmLoguin";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import OfertasDetalle from "./pages/OfertasDetalle";
+import RutaProtegida from "./components/RutaProtegida";
 
 function App() {
   const [carritoContar, setcarritoContar] = useState(0);
@@ -38,9 +39,23 @@ function App() {
           />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
-          <Route path="/AdminL" element={<AdmLoguin />} />
-          <Route path="/Admin" element={<Admin />} />
-          <Route path="/Ofertas/:id" element={<OfertasDetalle />} />
+          <Route path="/Loguin" element={<AdmLoguin />} />
+          <Route
+            path="/Admin"
+            element={
+              <RutaProtegida>
+                <Admin />
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/Ofertas/:id"
+            element={
+              <RutaProtegida>
+                <OfertasDetalle />
+              </RutaProtegida>
+            }
+          />
           <Route
             path="/Ofertas"
             element={
