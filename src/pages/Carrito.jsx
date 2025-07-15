@@ -36,7 +36,7 @@ const Carrito = () => {
       <Table striped bordered hover responsive className="mt-3">
         <thead>
           <tr>
-            <th>Discos</th>
+            <th>Disco</th>
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Total</th>

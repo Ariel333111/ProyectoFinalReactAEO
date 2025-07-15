@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { Table, Button, Form, Modal, Container } from "react-bootstrap";
 
 const API_URL =
@@ -45,15 +46,25 @@ const Crud = () => {
   };
 
   const handleShow = (disco) => {
-    setShow(true);
-    if (disco) {
-      setForm({
-        ...disco,
-        price: Number(disco.price),
-        stock: Number(disco.stock),
-      });
-      setEditId(disco.id);
-    }
+    Swal.fire({
+      title: "Ahora vas a crear o editar un disco.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#4ed630ff",
+      cancelButtonColor: "#d65930ff",
+      confirmButtonText: "Sí, adelante.",
+      cancelButtonText: "No, cancelar.",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setShow(true);
+        setForm({
+          ...disco,
+          price: Number(disco.price),
+          stock: Number(disco.stock),
+        });
+        setEditId(disco.id);
+      }
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -76,12 +87,41 @@ const Crud = () => {
 
     handleClose();
     getProductos();
+
+    Swal.fire({
+      icon: "success",
+      title: editId ? "Producto editado" : "Producto agregado",
+      text: editId
+        ? "Los cambios se guardaron correctamente."
+        : "El nuevo disco fue agregado exitosamente.",
+      timer: 2000,
+      showConfirmButton: false,
+    });
   };
 
   const eliminarProducto = async (id) => {
-    if (window.confirm("¿Seguro que quieres eliminar este producto?")) {
+    const result = await Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Esta acción no se puede deshacer",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    });
+
+    if (result.isConfirmed) {
       await fetch(`${API_URL}/${id}`, { method: "DELETE" });
       getProductos();
+
+      Swal.fire({
+        title: "¡Eliminado!",
+        text: "El producto fue eliminado correctamente.",
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      });
     }
   };
 
