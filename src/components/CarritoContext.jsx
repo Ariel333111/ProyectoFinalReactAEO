@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
 
 // Crear el contexto
 export const CarritoContext = createContext();
@@ -19,6 +20,14 @@ export const CarritoProvider = ({ children }) => {
       }
       // Si no existe, agregarlo con cantidad 1
       return [...prevCarrito, { ...disc, cantidad: 1 }];
+    });
+    // Mostrar alerta después de actualizar el carrito
+    Swal.fire({
+      icon: "success",
+      title: "Se agregó el producto al carrito de compras",
+      text: "Gracias por elegirnos",
+      timer: 2000,
+      showConfirmButton: false,
     });
   };
 

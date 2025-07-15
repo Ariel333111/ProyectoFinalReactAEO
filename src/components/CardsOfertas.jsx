@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../components/Cards.css";
-
+import { CarritoContext } from "./CarritoContext";
 function CardsOfertas() {
   const [vinilos, setVinilos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const { agregarAlCarrito } = useContext(CarritoContext);
 
   //pedido a la API de los vinilos
   useEffect(() => {
@@ -62,7 +63,12 @@ function CardsOfertas() {
                   <Card.Text>
                     <strong>${disc.price}</strong>
                   </Card.Text>
-                  <Button variant="primary">Agregar al carrito</Button>
+                  <Button
+                    variant="primary"
+                    onClick={() => agregarAlCarrito(disc)}
+                  >
+                    Agregar al carrito
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>

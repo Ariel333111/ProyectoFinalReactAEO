@@ -2,8 +2,12 @@ import { Container, Nav, Navbar, Badge, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { CartFill } from "react-bootstrap-icons";
+import { CarritoContext } from "./CarritoContext";
+import { useContext } from "react";
 
 function Navegacion() {
+  const { carrito } = useContext(CarritoContext);
+  const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
   const Navigate = useNavigate();
   const isAuth = localStorage.getItem("auth") === "true"; //esta autenticado?
   const cerrarSesion = () => {
@@ -30,7 +34,7 @@ function Navegacion() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav Nav className="d-flex gap-4 justify-content-start w-75">
+          <Nav className="d-flex gap-4 justify-content-start w-75">
             <Nav.Link as={Link} to="/" className="text-dark">
               Productos
             </Nav.Link>
@@ -61,13 +65,18 @@ function Navegacion() {
               </Button>
             )}
 
-            <Nav.Link as={Link} to="/Carrito" className="text-dark">
+            <Nav.Link
+              as={Link}
+              to="/Carrito"
+              className="text-dark d-flex align-items-center"
+            >
+              <CartFill size={20} className="me-2" />
               Carrito
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Carrito">
-              <Badge bg="primary">
-                <CartFill size={20} className="me-2" />
-              </Badge>
+              {totalItems > 0 && (
+                <Badge bg="primary" className="ms-2">
+                  {totalItems}
+                </Badge>
+              )}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
