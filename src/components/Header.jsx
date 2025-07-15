@@ -3,10 +3,10 @@ import NavBar from "../components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-function Header({ carritoContar }) {
+function Header() {
   return (
     <Container>
-      <NavBar carritoContar={carritoContar}></NavBar>
+      <NavBar></NavBar>
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../components/Cards.css";
 
-function CardsOfertas({ sumarAlCarrito }) {
+function CardsOfertas() {
   const [vinilos, setVinilos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
@@ -62,9 +62,7 @@ function CardsOfertas({ sumarAlCarrito }) {
                   <Card.Text>
                     <strong>${disc.price}</strong>
                   </Card.Text>
-                  <Button variant="primary" onClick={sumarAlCarrito}>
-                    Agregar al carrito
-                  </Button>
+                  <Button variant="primary">Agregar al carrito</Button>
                 </Card.Body>
               </Card>
             </Col>

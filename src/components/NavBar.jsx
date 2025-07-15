@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { CartFill } from "react-bootstrap-icons";
 
-function Navegacion({ carritoContar }) {
+function Navegacion() {
   const Navigate = useNavigate();
   const isAuth = localStorage.getItem("auth") === "true"; //esta autenticado?
   const cerrarSesion = () => {
@@ -49,9 +49,6 @@ function Navegacion({ carritoContar }) {
                 <Nav.Link as={Link} to="/Admin" className="text-dark">
                   Administrador
                 </Nav.Link>
-                <Nav.Link as={Link} to="/Ofertas/:id" className="text-dark">
-                  Detalles de las Ofertas
-                </Nav.Link>
               </>
             )}
             {!isAuth ? (
@@ -70,7 +67,6 @@ function Navegacion({ carritoContar }) {
             <Nav.Link as={Link} to="/Carrito">
               <Badge bg="primary">
                 <CartFill size={20} className="me-2" />
-                {carritoContar}
               </Badge>
             </Nav.Link>
           </Nav>

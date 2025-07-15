@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import Cards from "./Cards";
 
-function Galeria({ sumarAlCarrito }) {
+function Galeria() {
   return (
     <Container>
       <Container
@@ -12,7 +12,7 @@ function Galeria({ sumarAlCarrito }) {
       >
         <h2>Bienvenid@, estos son nuestros discos</h2>
       </Container>
-      <Cards sumarAlCarrito={sumarAlCarrito}></Cards>
+      <Cards></Cards>
     </Container>
   );
 }

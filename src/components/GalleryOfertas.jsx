@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import CardsOfertas from "../components/CardsOfertas";
 
-function GaleriaOfertas({ sumarAlCarrito }) {
+function GaleriaOfertas() {
   return (
     <Container>
       <Container
@@ -12,7 +12,7 @@ function GaleriaOfertas({ sumarAlCarrito }) {
       >
         <h2>Estas son nuestras ofertas</h2>
       </Container>
-      <CardsOfertas sumarAlCarrito={sumarAlCarrito}></CardsOfertas>
+      <CardsOfertas></CardsOfertas>
     </Container>
   );
 }

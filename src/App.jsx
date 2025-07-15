@@ -7,36 +7,15 @@ import Carrito from "./pages/Carrito";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import AdmLoguin from "./components/AdmLoguin";
-import { useState } from "react";
-import Swal from "sweetalert2";
-import OfertasDetalle from "./pages/OfertasDetalle";
 import RutaProtegida from "./components/RutaProtegida";
+import { CarritoProvider } from "./components/CarritoContext";
 
 function App() {
-  const [carritoContar, setcarritoContar] = useState(0);
-
-  function sumarAlCarrito() {
-    setcarritoContar(carritoContar + 1);
-    return Swal.fire({
-      icon: "success",
-      title: "Se agregó el producto al carrito de compras",
-      text: `Gracias por elegirnos`,
-    });
-  }
-
   return (
-    <Container>
+    <CarritoProvider>
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                carritoContar={carritoContar}
-                sumarAlCarrito={sumarAlCarrito}
-              />
-            }
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Loguin" element={<AdmLoguin />} />
@@ -48,27 +27,11 @@ function App() {
               </RutaProtegida>
             }
           />
-          <Route
-            path="/Ofertas/:id"
-            element={
-              <RutaProtegida>
-                <OfertasDetalle />
-              </RutaProtegida>
-            }
-          />
-          <Route
-            path="/Ofertas"
-            element={
-              <Ofertas
-                carritoContar={carritoContar}
-                sumarAlCarrito={sumarAlCarrito}
-              />
-            }
-          />
+          <Route path="/Ofertas" element={<Ofertas />} />
           <Route path="/Carrito" element={<Carrito />} />
         </Routes>
       </Router>
-    </Container>
+    </CarritoProvider>
   );
 }
 

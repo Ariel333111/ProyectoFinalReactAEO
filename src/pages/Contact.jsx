@@ -1,12 +1,12 @@
 import { Container } from "react-bootstrap";
-import NavBar from "../components/NavBar";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FormularioContacto from "../components/FormularioContacto";
 
 function Contact() {
   return (
     <Container>
-      <NavBar />
+      <Header />
       <FormularioContacto />
       <Footer />
     </Container>
