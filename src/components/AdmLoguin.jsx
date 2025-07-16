@@ -48,10 +48,14 @@ function Loguin() {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Recordarme" />
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Ingresar
-        </Button>
+        <Container className="d-flex gap-2 align-items-center">
+          <Button variant="primary" type="submit">
+            Ingresar
+          </Button>
+          <Button variant="secondary" onClick={() => navigate("/")}>
+            Ir a los Discos
+          </Button>
+        </Container>
       </Form>
     </Container>
   );
