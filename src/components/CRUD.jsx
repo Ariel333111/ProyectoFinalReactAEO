@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Table, Button, Form, Modal, Container } from "react-bootstrap";
 
@@ -21,11 +21,22 @@ const Crud = () => {
     avatar: "",
   });
   const [editId, setEditId] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getProductos = async () => {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-    setProductos(data);
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error("Error al cargar los discos");
+      const data = await res.json();
+      setProductos(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -78,6 +89,15 @@ const Crud = () => {
 
     const method = editId ? "PUT" : "POST";
     const url = editId ? `${API_URL}/${editId}` : API_URL;
+
+    if (form.price <= 0 || form.stock < 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Datos inválidos",
+        text: "El precio debe ser mayor a 0 y el stock no puede ser negativo.",
+      });
+      return;
+    }
 
     await fetch(url, {
       method,
@@ -136,6 +156,9 @@ const Crud = () => {
       <Button className="mb-3" onClick={() => handleShow()}>
         Agregar Disco
       </Button>
+      {loading && <p>Cargando discos...</p>}
+      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -281,7 +304,7 @@ const Crud = () => {
               />
             </Form.Group>
             <Form.Group className="mb-2">
-              <Form.Label>Imagen (URL)</Form.Label>
+              <Form.Label>Imagen (URL sin "")</Form.Label>
               <Form.Control
                 value={form.avatar}
                 onChange={(e) => setForm({ ...form, avatar: e.target.value })}
