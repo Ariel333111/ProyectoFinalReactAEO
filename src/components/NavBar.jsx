@@ -8,13 +8,7 @@ import { useContext } from "react";
 function Navegacion() {
   const { carrito } = useContext(CarritoContext);
   const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-  const Navigate = useNavigate();
-  const isAuth = localStorage.getItem("auth") === "true"; //esta autenticado?
-  const cerrarSesion = () => {
-    //termino la sesion
-    localStorage.removeItem("auth");
-    Navigate("/Loguin");
-  };
+
   return (
     <Navbar expand="lg" style={{ backgroundColor: "#b3cde0" }} className="py-3">
       <Container className="d-flex justify-content-between align-items-center">
@@ -48,22 +42,15 @@ function Navegacion() {
               Sobre Nosotros
             </Nav.Link>
 
-            {isAuth && ( //hay autenticación?
-              <>
-                <Nav.Link as={Link} to="/Admin" className="text-dark">
-                  Admin
-                </Nav.Link>
-              </>
-            )}
-            {!isAuth ? (
-              <Nav.Link as={Link} to="/Loguin" className="text-dark">
-                Login
-              </Nav.Link>
-            ) : (
-              <Button variant="outline-light" onClick={cerrarSesion}>
-                Cerrar sesión
-              </Button>
-            )}
+            <Nav.Link as={Link} to="/Admin" className="text-dark">
+              Admin
+            </Nav.Link>
+
+            <Nav.Link as={Link} to="/Login" className="text-dark">
+              Login
+            </Nav.Link>
+
+            <Button variant="outline-light">Cerrar sesión</Button>
 
             <Nav.Link
               as={Link}
