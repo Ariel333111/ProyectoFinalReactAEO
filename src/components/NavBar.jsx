@@ -51,13 +51,13 @@ function Navegacion() {
             {isAuth && ( //hay autenticación?
               <>
                 <Nav.Link as={Link} to="/Admin" className="text-dark">
-                  Administrador
+                  Admin
                 </Nav.Link>
               </>
             )}
             {!isAuth ? (
               <Nav.Link as={Link} to="/Loguin" className="text-dark">
-                Loguin
+                Login
               </Nav.Link>
             ) : (
               <Button variant="outline-light" onClick={cerrarSesion}>
