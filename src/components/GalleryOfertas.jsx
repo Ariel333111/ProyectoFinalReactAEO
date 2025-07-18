@@ -6,7 +6,7 @@ function GaleriaOfertas() {
     <Container>
       <Container
         style={{
-          backgroundColor: "#545555ff",
+          backgroundColor: "#5f6060ff",
           padding: "15px",
         }}
       >

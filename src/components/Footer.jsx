@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import { Facebook, Instagram, X } from "react-bootstrap-icons";
 
-function FooterM() {
+function Footer() {
   return (
     <Container>
       <footer
@@ -35,4 +35,4 @@ function FooterM() {
   );
 }
 
-export default FooterM;
+export default Footer;

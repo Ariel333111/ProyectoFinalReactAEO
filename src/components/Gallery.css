@@ -3,7 +3,7 @@
 .fuego-texto {
   font-weight: bold;
   font-size: 2.8rem;
-  color: #7b490c;
+  color: #4b2a01;
   font-family: "Pirata One", cursive; /* fuente gótica elegida */
   text-shadow: 0 0 5px #ff3300, 0 0 10px #ff6600, 0 0 20px #ffcc00;
   animation: parpadeoFuego 1.5s infinite alternate;

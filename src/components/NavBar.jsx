@@ -40,7 +40,10 @@ function Navegacion() {
 
   return (
     <Navbar expand="lg" style={{ backgroundColor: "#b3cde0" }} className="py-3">
-      <Container className="d-flex justify-content-between align-items-center">
+      <Container
+        className="d-flex justify-content-between align-items-center"
+        padding="1px"
+      >
         <Navbar.Brand
           as={Link}
           to="/"
