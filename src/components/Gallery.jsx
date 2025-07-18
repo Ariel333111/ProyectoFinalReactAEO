@@ -1,16 +1,18 @@
 import { Container } from "react-bootstrap";
 import Cards from "./Cards";
-
+import "./Gallery.css";
 function Galeria() {
   return (
     <Container>
       <Container
         style={{
-          backgroundColor: "#d4edda",
+          backgroundColor: "#545555ff",
           padding: "15px",
         }}
       >
-        <h2>Bienvenid@, estos son nuestros discos</h2>
+        <h2 className="fuego-texto text-center mt-4">
+          🎸 Bienvenid@, estos son nuestros discos 🔥
+        </h2>
       </Container>
       <Cards></Cards>
     </Container>

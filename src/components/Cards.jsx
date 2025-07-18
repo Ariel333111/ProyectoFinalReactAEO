@@ -42,7 +42,7 @@ function Cards() {
     //muestro los vinilos
     <Container
       style={{
-        backgroundColor: "#d4e6f1",
+        backgroundColor: "#b3cde0",
         padding: "20px",
       }}
     >

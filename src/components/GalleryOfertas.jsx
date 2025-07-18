@@ -6,11 +6,13 @@ function GaleriaOfertas() {
     <Container>
       <Container
         style={{
-          backgroundColor: "#d4edda",
+          backgroundColor: "#545555ff",
           padding: "15px",
         }}
       >
-        <h2>Estas son nuestras ofertas</h2>
+        <h2 h2 className="fuego-texto text-center mt-4">
+          💿 Estas son nuestras ofertas 🔥
+        </h2>
       </Container>
       <CardsOfertas></CardsOfertas>
     </Container>
