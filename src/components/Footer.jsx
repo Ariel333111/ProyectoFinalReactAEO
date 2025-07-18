@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { Facebook, Instagram, Twitter } from "react-bootstrap-icons";
+import { Facebook, Instagram, X } from "react-bootstrap-icons";
 
 function FooterM() {
   return (
@@ -26,12 +26,8 @@ function FooterM() {
           >
             <Instagram size={24} />
           </a>
-          <a
-            href="https://twitter.com"
-            className="mx-2"
-            style={{ color: "#155724" }}
-          >
-            <Twitter size={24} />
+          <a href="https://x.com" className="mx-2" style={{ color: "#155724" }}>
+            <X size={24} />
           </a>
         </Container>
       </footer>

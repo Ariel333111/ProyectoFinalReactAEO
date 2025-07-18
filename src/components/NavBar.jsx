@@ -6,6 +6,7 @@ import { CarritoContext } from "./CarritoContext";
 import { useContext } from "react";
 import { useAuth } from "./AuthContext";
 import Swal from "sweetalert2";
+import "../components/NavBar.css";
 
 function Navegacion() {
   const { carrito } = useContext(CarritoContext);
@@ -54,14 +55,13 @@ function Navegacion() {
           />
           <span className="fw-bold ms-2 text-dark">Vinilos E-Commerce</span>
         </Navbar.Brand>
-
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="d-flex gap-4 justify-content-start w-75">
             {/* Mostrar nombre del usuario logueado */}
             {user && (
-              <span className="text-dark fw-bold align-self-center">
-                Hola, {user.username}
+              <span className="text-dark align-self-center">
+                Hola {user.username}!
               </span>
             )}
 
@@ -84,6 +84,19 @@ function Navegacion() {
                 Admin
               </Nav.Link>
             )}
+            <Nav.Link
+              as={Link}
+              to="/Carrito"
+              className="text-dark d-flex align-items-center"
+            >
+              <CartFill size={20} className="me-2" />
+              Carrito
+              {totalItems > 0 && (
+                <Badge bg="primary" className="ms-2">
+                  {totalItems}
+                </Badge>
+              )}
+            </Nav.Link>
 
             {/* Mostrar Login si no hay usuario */}
             {!user && (
@@ -98,20 +111,6 @@ function Navegacion() {
                 Cerrar sesión
               </Button>
             )}
-
-            <Nav.Link
-              as={Link}
-              to="/Carrito"
-              className="text-dark d-flex align-items-center"
-            >
-              <CartFill size={20} className="me-2" />
-              Carrito
-              {totalItems > 0 && (
-                <Badge bg="primary" className="ms-2">
-                  {totalItems}
-                </Badge>
-              )}
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

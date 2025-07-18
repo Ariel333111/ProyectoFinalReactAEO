@@ -1,14 +1,52 @@
 import { useContext } from "react";
-import { Container, Table, Button } from "react-bootstrap";
+import {
+  Container,
+  Table,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { CarritoContext } from "../components/CarritoContext";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Swal from "sweetalert2";
 
 const Carrito = () => {
   const { carrito, setCarrito } = useContext(CarritoContext);
 
-  const eliminarDelCarrito = (id) => {
-    setCarrito((prev) => prev.filter((disc) => disc.id !== id));
+  const agregarUnidad = (id) => {
+    setCarrito((prev) =>
+      prev.map((disc) =>
+        disc.id === id ? { ...disc, cantidad: disc.cantidad + 1 } : disc
+      )
+    );
+    Swal.fire({
+      toast: true,
+      position: "top-end",
+      icon: "success",
+      title: "Se agregó una unidad",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+  };
+
+  const eliminarUnaUnidad = (id) => {
+    setCarrito((prev) =>
+      prev
+        .map((disc) =>
+          disc.id === id ? { ...disc, cantidad: disc.cantidad - 1 } : disc
+        )
+        .filter((disc) => disc.cantidad > 0)
+    );
+
+    Swal.fire({
+      toast: true,
+      position: "top-end",
+      icon: "error",
+      title: "Se eliminó una unidad",
+      showConfirmButton: false,
+      timer: 1000,
+    });
   };
 
   const total = carrito.reduce(
@@ -28,6 +66,17 @@ const Carrito = () => {
     );
   }
 
+  const handleFinalizarCompra = () => {
+    Swal.fire({
+      icon: "info",
+      title: "Redirigiendo al área de pagos...",
+      showConfirmButton: false,
+      timer: 1500,
+      toast: true,
+      position: "top-end",
+    });
+  };
+
   return (
     <Container className="mt-4">
       <Header />
@@ -40,7 +89,7 @@ const Carrito = () => {
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Total</th>
-            <th></th>
+            <th>Agregar/Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -51,19 +100,59 @@ const Carrito = () => {
               <td>{item.cantidad}</td>
               <td>${(Number(item.price) * item.cantidad).toFixed(2)}</td>
               <td>
-                <Button
-                  variant="danger"
-                  size="sm"
-                  onClick={() => eliminarDelCarrito(item.id)}
-                >
-                  Eliminar
-                </Button>
+                <Container className="d-flex gap-2">
+                  <OverlayTrigger
+                    placement="top"
+                    overlay={
+                      <Tooltip id={`tooltip-agregar-${item.id}`}>
+                        Agregar unidad
+                      </Tooltip>
+                    }
+                  >
+                    <Button
+                      variant="success"
+                      size="sm"
+                      onClick={() => agregarUnidad(item.id)}
+                    >
+                      ➕
+                    </Button>
+                  </OverlayTrigger>
+
+                  <OverlayTrigger
+                    placement="top"
+                    overlay={
+                      <Tooltip id={`tooltip-eliminar-${item.id}`}>
+                        Eliminar disco
+                      </Tooltip>
+                    }
+                  >
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => eliminarUnaUnidad(item.id)}
+                    >
+                      🗑️
+                    </Button>
+                  </OverlayTrigger>
+                </Container>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
       <h5 className="text-end">Total a pagar: ${total.toFixed(2)}</h5>
+      <div className="text-end mt-3">
+        <br />
+        <Button
+          onClick={handleFinalizarCompra}
+          variant="success"
+          size="lg"
+          className="shadow-sm custom-button"
+        >
+          Finalizar Compra
+        </Button>
+      </div>
+      <br />
       <Footer />
     </Container>
   );
