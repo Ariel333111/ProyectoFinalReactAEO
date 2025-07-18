@@ -8,22 +8,41 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import { CarritoProvider } from "./components/CarritoContext";
+import { AuthProvider } from "./components/AuthContext";
+import RutaProtegida from "./components/RutaProtegida";
+import RutaAdmin from "./components/RutaAdmin";
 
 function App() {
   return (
-    <CarritoProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Admin" element={<Admin />} />
-          <Route path="/Ofertas" element={<Ofertas />} />
-          <Route path="/Carrito" element={<Carrito />} />
-        </Routes>
-      </Router>
-    </CarritoProvider>
+    <AuthProvider>
+      <CarritoProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="/Login" element={<Login />} />
+            <Route
+              path="/Admin"
+              element={
+                <RutaAdmin>
+                  <Admin />
+                </RutaAdmin>
+              }
+            />
+            <Route path="/Ofertas" element={<Ofertas />} />
+            <Route
+              path="/Carrito"
+              element={
+                <RutaProtegida>
+                  <Carrito />
+                </RutaProtegida>
+              }
+            />
+          </Routes>
+        </Router>
+      </CarritoProvider>
+    </AuthProvider>
   );
 }
 
