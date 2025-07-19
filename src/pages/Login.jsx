@@ -58,7 +58,10 @@ const Login = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container
+      className="mt-5"
+      style={{ padding: "20px", backgroundColor: "#b3cde0" }}
+    >
       <Row className="justify-content-center">
         <Col xs={12} md={6}>
           <h3 className="text-center mb-4">Iniciar sesión</h3>

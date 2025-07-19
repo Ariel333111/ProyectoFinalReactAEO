@@ -124,7 +124,7 @@ function CardsOfertas() {
                 </Card.Text>
 
                 <Card.Text>
-                  <strong>${disc.price}</strong>
+                  <strong>${disc.price}.-</strong>
                 </Card.Text>
 
                 <Button

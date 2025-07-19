@@ -7,9 +7,22 @@ function Admin() {
   return (
     <Container className="mt-4">
       <NavBar />
-      <h2>Esta es la página del Administrador</h2>
-      <h3>Acceso exclusivo para usuarios autenticados</h3>
+      <Container
+        style={{
+          backgroundColor: "#7d8080ff",
+          padding: "15px",
+        }}
+      >
+        <br />
+        <h2 className="text-center">Esta es la página del Administrador</h2>
+        <h3 className="text-center">
+          -Acceso exclusivo para usuarios autenticados-
+        </h3>
+      </Container>
+      <br />
+
       <Crud />
+
       <Footer></Footer>
     </Container>
   );

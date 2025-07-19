@@ -3,10 +3,10 @@ import Cards from "./Cards";
 import "./Gallery.css";
 function Galeria() {
   return (
-    <Container>
+    <Container fluid>
       <Container
         style={{
-          backgroundColor: "#5f6060ff",
+          backgroundColor: "#7d8080ff",
           padding: "15px",
         }}
       >

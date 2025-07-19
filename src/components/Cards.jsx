@@ -84,7 +84,7 @@ function Cards() {
 
       <Row>
         {vinilosFiltrados.map((disc) => (
-          <Col key={disc.id} md={4}>
+          <Col key={disc.id} xs={12} sm={6} md={4}>
             <Card className="m-2 card-hover">
               <Card.Img src={disc.avatar} />
               <Card.Body>
@@ -115,7 +115,7 @@ function Cards() {
                 </Card.Text>
 
                 <Card.Text>
-                  <strong>${disc.price}</strong>
+                  <strong>${disc.price}.-</strong>
                 </Card.Text>
 
                 <Button

@@ -7,11 +7,13 @@ function AboutUs() {
         <Col md={8}>
           <Card className="text-center shadow-lg">
             <Card.Body>
-              <Card.Title className="display-4">Sobre Nosotros</Card.Title>
+              <Card.Title className="display-3">Sobre Nosotros</Card.Title>
+
               <Card.Text className="lead">
                 Somos una empresa apasionada por la música, por el arte musical,
-                dedicada a conectar artistas con su público, nos dedicamos a la
-                venta de vinilos como forma de costear esta forma de vida.
+                y nos dedicamos a conectar a los artistas con su público.
+                Entendemos la venta de vinilos como forma de costear este estilo
+                de vida.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -49,8 +51,8 @@ function AboutUs() {
               <Card.Text>
                 Creemos que la música en sus diferentes formas tiene el poder de
                 unir a las personas. Nuestro objetivo es ayudar a los talentos
-                emergentes a brillar y llevar su arte al mundo a traves de
-                nuestros discos.
+                emergentes a brillar y llevar su arte al mundo entero a traves
+                de nuestros discos.
               </Card.Text>
             </Card.Body>
           </Card>

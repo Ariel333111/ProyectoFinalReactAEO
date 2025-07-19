@@ -6,7 +6,10 @@ function Footer() {
     <Container>
       <footer
         className="text-center p-3"
-        style={{ backgroundColor: "#d4edda", color: "#155724" }}
+        style={{
+          backgroundColor: "#d4edda",
+          color: "#155724",
+        }}
       >
         <p>
           <strong>© 2025 Vinilos E-Commerce</strong>

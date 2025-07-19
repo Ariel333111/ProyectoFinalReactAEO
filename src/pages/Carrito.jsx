@@ -59,7 +59,7 @@ const Carrito = () => {
       <Container className="mt-4">
         <Header />
         <Container className="text-center">
-          <h3>Tú carrito está vacío</h3>
+          <h3 className="fuego-texto">Tú carrito está vacío</h3>
         </Container>
         <Footer />
       </Container>
@@ -81,7 +81,7 @@ const Carrito = () => {
     <Container className="mt-4">
       <Header />
       <br />
-      <h3>Carrito de compras</h3>
+      <h3 className="fuego-texto">Carrito de compras</h3>
       <Table striped bordered hover responsive className="mt-3">
         <thead>
           <tr>
@@ -105,7 +105,7 @@ const Carrito = () => {
                     placement="top"
                     overlay={
                       <Tooltip id={`tooltip-agregar-${item.id}`}>
-                        Agregar unidad
+                        Agregar disco
                       </Tooltip>
                     }
                   >
@@ -140,6 +140,7 @@ const Carrito = () => {
           ))}
         </tbody>
       </Table>
+      <br />
       <h5 className="text-end">Total a pagar: ${total.toFixed(2)}</h5>
       <div className="text-end mt-3">
         <br />

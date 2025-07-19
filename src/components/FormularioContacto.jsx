@@ -34,7 +34,9 @@ function FormularioSweet() {
         title: "El email no es válido",
         text: "Ingresar un email válido",
       });
+      return; // 👈 esto evita que avance con el envío
     }
+
     //despues de validar
     Swal.fire({
       icon: "success",
@@ -49,27 +51,26 @@ function FormularioSweet() {
   };
   return (
     <Container
-      style={{
-        backgroundColor: "#d4e6f1",
-        padding: "20px",
-      }}
+      className="text-center p-3"
+      style={{ backgroundColor: "#7d8080ff" }}
     >
       <br />
       <Form
+        noValidate
         onSubmit={handleSubmit}
         style={{ maxWidth: "400px", margin: "auto" }}
       >
-        <h2>Formulario de Contacto</h2>
+        <h2 className="fuego-texto">Formulario de Contacto</h2>
         <br />
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Ingrese su nombre</Form.Label>
+          <Form.Label className="fw-bold">Ingrese su nombre</Form.Label>
           <Form.Control
             onChange={(e) => setNombre(e.target.value)}
             type="text"
             value={nombre}
             placeholder="Nombre Apellido"
           />
-          <Form.Label>Ingrese su email</Form.Label>
+          <Form.Label className="fw-bold">Ingrese su email</Form.Label>
           <Form.Control
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +79,7 @@ function FormularioSweet() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Escriba su mensaje</Form.Label>
+          <Form.Label className="fw-bold">Escriba su mensaje</Form.Label>
           <Form.Control
             value={mensaje}
             onChange={(e) => setMensaje(e.target.value)}

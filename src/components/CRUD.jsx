@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Table, Button, Form, Modal, Container } from "react-bootstrap";
-
+import "./CRUD.css";
 const API_URL =
   "https://6820e4b4259dad2655adeed5.mockapi.io/api/vinilos111/disc";
 
@@ -151,7 +151,7 @@ const Crud = () => {
 
   return (
     <div className="container mt-4">
-      <h2>CRUD de Discos</h2>
+      <h2 className="fuego-texto text-center mt-4">CRUD de Discos</h2>
       <br />
       <Button className="mb-3" onClick={() => handleShow()}>
         Agregar Disco
@@ -159,7 +159,7 @@ const Crud = () => {
       {loading && <p>Cargando discos...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
-      <Table striped bordered hover>
+      <Table striped bordered hover className="table-gruesa">
         <thead>
           <tr>
             <th>Título</th>

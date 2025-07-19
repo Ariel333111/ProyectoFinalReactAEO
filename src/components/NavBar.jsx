@@ -41,8 +41,8 @@ function Navegacion() {
   return (
     <Navbar expand="lg" style={{ backgroundColor: "#b3cde0" }} className="py-3">
       <Container
+        fluid
         className="d-flex justify-content-between align-items-center"
-        padding="1px"
       >
         <Navbar.Brand
           as={Link}
@@ -56,14 +56,14 @@ function Navegacion() {
             height="25%"
             className="d-inline-block align-top"
           />
-          <span className="fw-bold ms-2 text-dark">Vinilos E-Commerce</span>
+          <span className=" ms-2 text-dark ">Vinilos E-Commerce</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="d-flex gap-4 justify-content-start w-75">
+          <Nav className="d-flex flex-wrap gap-3 w-100 justify-content-start">
             {/* Mostrar nombre del usuario logueado */}
             {user && (
-              <span className="text-dark align-self-center">
+              <span className="hola text-dark align-self-center">
                 Hola {user.username}!
               </span>
             )}
@@ -104,7 +104,7 @@ function Navegacion() {
             {/* Mostrar Login si no hay usuario */}
             {!user && (
               <Nav.Link as={Link} to="/Login" className="text-dark">
-                Login
+                Ingresá
               </Nav.Link>
             )}
 
