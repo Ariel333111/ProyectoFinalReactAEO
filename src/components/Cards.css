@@ -1,7 +1,11 @@
 .card-hover {
-  transition: transform 0.3s ease-in-out;
+  border: 1px solid #000; /* línea negra fina en todo el contorno */
+  border-radius: 6px; /* suaviza las esquinas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* sombra sutil para profundidad */
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease;
 }
 
 .card-hover:hover {
   transform: scale(1.05);
+  border-color: #770000; /* opcional: tono rojo oscuro al hacer hover */
 }
