@@ -3,6 +3,11 @@
 Aplicación -SPA- que simula una tienda de discos de vinilo con funcionalidad completa: galería, carrito de compras, login, panel de administración y consumo de una API REST.
 
 ---
+## 🔗 Deploy
+
+[👉 Ver app online]((https://vinilos-ecommerce.vercel.app/))
+
+---
 
 ## ✨ Funcionalidades destacadas
 
