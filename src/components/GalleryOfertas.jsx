@@ -10,7 +10,7 @@ function GaleriaOfertas() {
           padding: "15px",
         }}
       >
-        <h2 h2 className="fuego-texto text-center mt-4">
+        <h2 className="fuego-texto text-center mt-4">
           💿 Estas son nuestras ofertas 🔥
         </h2>
       </Container>
