@@ -1,5 +1,5 @@
 import Home from "../src/pages/Home";
-import { Container } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Ofertas from "./pages/Ofertas";
@@ -16,6 +16,18 @@ function App() {
   return (
     <AuthProvider>
       <CarritoProvider>
+        <Helmet>
+          <title>Vinilos E-Commerce 🎸🔥</title>
+          <meta
+            name="description"
+            content="Explorá y comprá discos de vinilo únicos, de bandas clásicas y alternativas. Tu tienda rockera online."
+          />
+          <meta
+            name="keywords"
+            content="vinilos, ecommerce, rock, pop, discos, coleccionables, tienda online"
+          />
+          <meta name="author" content="Vinilos E-Commerce" />
+        </Helmet>
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
