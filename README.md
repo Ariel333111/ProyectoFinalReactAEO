@@ -1,6 +1,6 @@
 # 🛒 Vinilos E-Commerce | Proyecto Final React.js
 
-Aplicación SPA que simula una tienda de discos de vinilo con funcionalidad completa: galería, carrito de compras, login, panel de administración y consumo de una API REST.
+Aplicación -SPA- que simula una tienda de discos de vinilo con funcionalidad completa: galería, carrito de compras, login, panel de administración y consumo de una API REST.
 
 ---
 
