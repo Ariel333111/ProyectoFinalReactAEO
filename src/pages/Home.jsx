@@ -3,11 +3,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 
-function Home({ carritoContar, sumarAlCarrito }) {
+function Home() {
   return (
     <Container className="mt-4">
-      <Header carritoContar={carritoContar}></Header>
-      <Gallery sumarAlCarrito={sumarAlCarrito}></Gallery>
+      <Header></Header>
+      <Gallery></Gallery>
       <Footer></Footer>
     </Container>
   );

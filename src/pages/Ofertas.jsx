@@ -3,11 +3,11 @@ import Header from "../components/Header";
 import GalleryOfertas from "../components/GalleryOfertas";
 import Footer from "../components/Footer";
 
-function Ofertas({ carritoContar, sumarAlCarrito }) {
+function Ofertas() {
   return (
     <Container className="mt-4">
-      <Header carritoContar={carritoContar}></Header>
-      <GalleryOfertas sumarAlCarrito={sumarAlCarrito}></GalleryOfertas>
+      <Header></Header>
+      <GalleryOfertas></GalleryOfertas>
       <Footer></Footer>
     </Container>
   );

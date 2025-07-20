@@ -1,12 +1,15 @@
 import { Container } from "react-bootstrap";
-import { Facebook, Instagram, Twitter } from "react-bootstrap-icons";
+import { Facebook, Instagram, X } from "react-bootstrap-icons";
 
-function FooterM() {
+function Footer() {
   return (
     <Container>
       <footer
         className="text-center p-3"
-        style={{ backgroundColor: "#d4edda", color: "#155724" }}
+        style={{
+          backgroundColor: "#d4edda",
+          color: "#155724",
+        }}
       >
         <p>
           <strong>© 2025 Vinilos E-Commerce</strong>
@@ -26,12 +29,8 @@ function FooterM() {
           >
             <Instagram size={24} />
           </a>
-          <a
-            href="https://twitter.com"
-            className="mx-2"
-            style={{ color: "#155724" }}
-          >
-            <Twitter size={24} />
+          <a href="https://x.com" className="mx-2" style={{ color: "#155724" }}>
+            <X size={24} />
           </a>
         </Container>
       </footer>
@@ -39,4 +38,4 @@ function FooterM() {
   );
 }
 
-export default FooterM;
+export default Footer;

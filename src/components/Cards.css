@@ -1,5 +1,26 @@
 .card-hover {
+  border: 1px solid #9f6308;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #9f6308;
+  animation: brilloFuego 3s infinite alternate;
   transition: transform 0.3s ease-in-out;
+  max-width: 100%;
+  min-width: 200px;
+}
+.card-body {
+  background-color: #f2f0f0; /* gris claro */
+  border-top: 1px solid #9f6308; /* opcional: línea de separación con la imagen */
+  border-radius: 0 0 6px 6px; /* suaviza solo la parte inferior */
+  padding: 15px;
+}
+
+@keyframes brilloFuego {
+  0% {
+    box-shadow: 0 0 5px #9f6308;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff9900;
+  }
 }
 
 .card-hover:hover {

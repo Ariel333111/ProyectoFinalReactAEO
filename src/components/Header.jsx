@@ -1,10 +1,10 @@
 import { Container } from "react-bootstrap";
 import NavBar from "../components/NavBar";
 
-function Header({ carritoContar }) {
+function Header() {
   return (
     <Container>
-      <NavBar carritoContar={carritoContar}></NavBar>
+      <NavBar></NavBar>
     </Container>
   );
 }

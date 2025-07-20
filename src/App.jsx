@@ -1,57 +1,61 @@
 import Home from "../src/pages/Home";
-import { Container } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Ofertas from "./pages/Ofertas";
 import Carrito from "./pages/Carrito";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import AdmLoguin from "./components/AdmLoguin";
-import { useState } from "react";
-import Swal from "sweetalert2";
+import Login from "./pages/Login";
+import { CarritoProvider } from "./components/CarritoContext";
+import { AuthProvider } from "./components/AuthContext";
+import RutaProtegida from "./components/RutaProtegida";
+import RutaAdmin from "./components/RutaAdmin";
 
 function App() {
-  const [carritoContar, setcarritoContar] = useState(0);
-
-  function sumarAlCarrito() {
-    setcarritoContar(carritoContar + 1);
-    return Swal.fire({
-      icon: "success",
-      title: "Se agregó el producto al carrito de compras",
-      text: `Gracias por elegirnos`,
-    });
-  }
-
   return (
-    <Container>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                carritoContar={carritoContar}
-                sumarAlCarrito={sumarAlCarrito}
-              />
-            }
+    <AuthProvider>
+      <CarritoProvider>
+        <Helmet>
+          <title>Vinilos E-Commerce 🎸🔥</title>
+          <meta
+            name="description"
+            content="Explorá y comprá discos de vinilo únicos, de bandas clásicas y alternativas. Tu tienda rockera online."
           />
-          <Route path="/About" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/AdminL" element={<AdmLoguin />} />
-          <Route path="/Admin" element={<Admin />} />
-          <Route
-            path="/Ofertas"
-            element={
-              <Ofertas
-                carritoContar={carritoContar}
-                sumarAlCarrito={sumarAlCarrito}
-              />
-            }
+          <meta
+            name="keywords"
+            content="vinilos, ecommerce, rock, pop, discos, coleccionables, tienda online"
           />
-          <Route path="/Carrito" element={<Carrito />} />
-        </Routes>
-      </Router>
-    </Container>
+          <meta name="author" content="Vinilos E-Commerce" />
+          <link rel="icon" href="/Aicon.ico" type="image/x-icon" />
+        </Helmet>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="/Login" element={<Login />} />
+            <Route
+              path="/Admin"
+              element={
+                <RutaAdmin>
+                  <Admin />
+                </RutaAdmin>
+              }
+            />
+            <Route path="/Ofertas" element={<Ofertas />} />
+            <Route
+              path="/Carrito"
+              element={
+                <RutaProtegida>
+                  <Carrito />
+                </RutaProtegida>
+              }
+            />
+          </Routes>
+        </Router>
+      </CarritoProvider>
+    </AuthProvider>
   );
 }
 

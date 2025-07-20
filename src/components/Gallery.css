@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
+
+.fuego-texto {
+  font-weight: bold;
+  font-size: 2.8rem;
+  color: #4b2a01;
+  font-family: "Pirata One", cursive; /* fuente gótica elegida */
+  text-shadow: 0 0 5px #ff3300, 0 0 10px #ff6600, 0 0 20px #ffcc00;
+  animation: parpadeoFuego 1.5s infinite alternate;
+}
+
+@keyframes parpadeoFuego {
+  0% {
+    text-shadow: 0 0 5px #ff3300, 0 0 10px #ff6600, 0 0 20px #ffcc00;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff3300, 0 0 15px #ff6600, 0 0 30px #ffff66;
+  }
+}
