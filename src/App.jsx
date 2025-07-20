@@ -27,6 +27,7 @@ function App() {
             content="vinilos, ecommerce, rock, pop, discos, coleccionables, tienda online"
           />
           <meta name="author" content="Vinilos E-Commerce" />
+          <link rel="icon" href="/Aicon.ico" type="image/x-icon" />
         </Helmet>
         <Router>
           <Routes>
