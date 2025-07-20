@@ -5,7 +5,7 @@ Aplicación -SPA- que simula una tienda de discos de vinilo con funcionalidad co
 ---
 ## 🔗 Deploy
 
-[👉 Ver app online]((https://vinilos-ecommerce.vercel.app/))
+[👉 Ver app online] => https://vinilos-ecommerce.vercel.app/
 
 ---
 
